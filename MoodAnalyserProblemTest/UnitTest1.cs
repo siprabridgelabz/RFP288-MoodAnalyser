@@ -4,19 +4,22 @@ namespace MoodAnalyserProblemTest
 {
     public class Tests
     {
-        MoodAnalyserDemo moodAnalyserDemo = new MoodAnalyserDemo();
+       
         [Test]
 
         public void GivenSadMood_ShouldReturnSad()
         {
-            string result = moodAnalyserDemo.AnalyseMood("Iam in sad mood");
+            MoodAnalyserDemo moodAnalyserDemo = new MoodAnalyserDemo("Iam in sad mood");
+            string result = moodAnalyserDemo.AnalyseMood();
             Assert.AreEqual(result, "sad");
         }
         [Test]
         public void GivenSadMood_ShouldReturnHappy()
         {
-            string result = moodAnalyserDemo.AnalyseMood("Iam in Any mood");
+            MoodAnalyserDemo moodAnalyserDemo = new MoodAnalyserDemo("Iam in Any mood");
+            string result = moodAnalyserDemo.AnalyseMood();
             Assert.AreEqual(result, "Happy");
         }
+        
     }
 }
