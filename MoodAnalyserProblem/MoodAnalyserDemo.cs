@@ -12,15 +12,21 @@ namespace MoodAnalyserProblem
         string message;
         public MoodAnalyserDemo(string message)
         {
-                this.message = message;
+            this.message = message;
         }
         public string AnalyseMood()
         {
             try
             {
-                if (message.Contains("sad"))
+                if (this.message.Equals(string.Empty))
                 {
-                    return "sad";
+                    throw new MoodAnalyseCustom_Exception("Message should not be Empty", MoodAnalyser_ExceptionType.EMPTY_MOOD);
+                }
+                //My name is Sad
+                if (message.Contains("Sad"))
+                {
+
+                    return "Sad";
                 }
                 else
                 {
@@ -32,7 +38,6 @@ namespace MoodAnalyserProblem
                 // return "Happy";
                 throw new MoodAnalyseCustom_Exception("Message should not be null", MoodAnalyser_ExceptionType.NULL_MOOD);
             }
-            
         }
     }
 }
